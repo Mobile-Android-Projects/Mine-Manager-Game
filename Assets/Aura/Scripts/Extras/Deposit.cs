@@ -4,7 +4,7 @@ namespace Aura.Scripts.Extras
 {
     public class Deposit : MonoBehaviour
     {
-        private float CurrentGoldDepo { get; set; }
+        public float CurrentGoldDepo { get; private set; }
 
         public void DepositGold(float goldAmount)
         {
