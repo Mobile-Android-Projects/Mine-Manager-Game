@@ -7,7 +7,8 @@ using Aura.Scripts.Extras;
 
 public class Shaft : MonoBehaviour
 {
-    //reference to the deposit class TODO: probably should name it bank
+    //shaft properties
+    public int ShaftID { get; set; }
 
     [Header("Prefabs")]
     [SerializeField] private GameObject minerPrefab;

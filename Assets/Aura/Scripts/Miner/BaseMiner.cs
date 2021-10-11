@@ -9,7 +9,8 @@ using UnityEngine;
  */
 namespace Aura.Scripts.Miner
 {
-    public class BaseMiner : MonoBehaviour
+    //TODO:Organize the members into regions
+    public class BaseMiner : MonoBehaviour,IClickable
     {
         [Header("Movement Properties")]
         [SerializeField] protected float moveSpeed;
@@ -46,6 +47,11 @@ namespace Aura.Scripts.Miner
             }).Play();
         }
 
+        public virtual void OnClick()
+        {
+            
+        }
+
 
         protected virtual IEnumerator IECollect(float gold, float time)
         {
@@ -77,5 +83,6 @@ namespace Aura.Scripts.Miner
                 transform.localScale = new Vector3(-1f, 1f, 1f);
             }
         }
+
     }
 }

@@ -14,17 +14,27 @@ namespace Aura.Scripts.Miner
         //reference to the owning shaft
         public Shaft OwningShaft { get; set; }
 
+        //movement control variables
+        public bool hasBeenClicked { get; set; }
+
         #endregion
 
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                MoveMiner(OwningShaft.MiningLocation.position);
-            }
-        }
 
         #region Utility Methods
+        private void OnMouseDown()
+        {
+            if(!hasBeenClicked)
+            {
+                OnClick();
+                hasBeenClicked = true;
+            }
+        }
+        public override void OnClick()
+        {
+            //move miner when click over miner is registered
+            MoveMiner(OwningShaft.MiningLocation.position);
+            //do not allow for any clicks after first click
+        }
         protected override void MoveMiner(Vector3 goalPos)
         {
             base.MoveMiner(goalPos);
